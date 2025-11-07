@@ -1,6 +1,8 @@
 package jdbc.example.relationships.one_to_one.entity;
 
 import jakarta.persistence.*;
+import jdbc.example.relationships.one_to_one.EyeColor;
+
 import java.util.Objects;
 
 @Entity
@@ -16,14 +18,18 @@ public class Passport {
 
     @Column (name = "height")
     private int height;
-
+    @Enumerated(EnumType.STRING)
     @Column (name = "eye_Color")
-    private String eyeColor;
+    private EyeColor eyeColor;
+
+
+    @OneToOne(mappedBy = "passport", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Student student;
 
     public Passport() {
     }
 
-    public Passport(String email, int height, String eyeColor) {
+    public Passport(String email, int height, EyeColor eyeColor) {
         this.email = email;
         this.height = height;
         this.eyeColor = eyeColor;
@@ -53,12 +59,20 @@ public class Passport {
         this.height = height;
     }
 
-    public String getEyeColor() {
+    public EyeColor getEyeColor() {
         return eyeColor;
     }
 
-    public void setEyeColor(String eyeColor) {
+    public void setEyeColor(EyeColor eyeColor) {
         this.eyeColor = eyeColor;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override
@@ -70,4 +84,6 @@ public class Passport {
                 ", eyeColor='" + eyeColor + '\'' +
                 '}';
     }
+
+
 }

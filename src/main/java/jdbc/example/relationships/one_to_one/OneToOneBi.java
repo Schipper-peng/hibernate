@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 import jdbc.example.relationships.one_to_one.entity.Passport;
 import jdbc.example.relationships.one_to_one.entity.Student;
 
-public class OneToOneUni {
+public class OneToOneBi {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("jpa-course");
@@ -17,17 +17,25 @@ public class OneToOneUni {
 
         try {
             transaction.begin();
-            Student student1 = new Student("Oleg", "Sablin", 6.3 );
-            Passport passport1 = new Passport("sablin@mail.com", 185, EyeColor.BLUE);
-            student1.setPassport(passport1);
+//              PERSIST
+//            Student student = new Student("Ivan", "Sharapov", 8.3 );
+//            Passport passport = new Passport("sharapov@mail.com", 194, "brown");
+//
+//            passport.setStudent(student);
+//            student.setPassport(passport);
+//            entityManager.persist(passport);
 
-            entityManager.persist(passport1);
-            entityManager.persist(student1);
-//            Student student = entityManager.find(Student.class, 3);
-//            System.out.println(student);
-//            System.out.println(student.getPassport());
-//            Student student = entityManager.find(Student.class, 3);
-//            entityManager.remove(student);
+            //            FIND
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            System.out.println(passport);
+//            System.out.println(passport.getStudent());
+//            REMOVE
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            entityManager.remove(passport);
+            Passport passport = entityManager.find(Passport.class, 3);
+            passport.getStudent().setPassport(null);
+            entityManager.remove(passport);
+
 
 
             transaction.commit();

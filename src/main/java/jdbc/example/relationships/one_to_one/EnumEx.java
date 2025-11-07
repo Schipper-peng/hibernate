@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 import jdbc.example.relationships.one_to_one.entity.Passport;
 import jdbc.example.relationships.one_to_one.entity.Student;
 
-public class OneToOneUni {
+public class EnumEx {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("jpa-course");
@@ -17,18 +17,13 @@ public class OneToOneUni {
 
         try {
             transaction.begin();
-            Student student1 = new Student("Oleg", "Sablin", 6.3 );
-            Passport passport1 = new Passport("sablin@mail.com", 185, EyeColor.BLUE);
-            student1.setPassport(passport1);
 
-            entityManager.persist(passport1);
-            entityManager.persist(student1);
-//            Student student = entityManager.find(Student.class, 3);
-//            System.out.println(student);
-//            System.out.println(student.getPassport());
-//            Student student = entityManager.find(Student.class, 3);
-//            entityManager.remove(student);
-
+//            Student student = new Student("John", "Scott", 9.1);
+//            Passport passport = new Passport("johny@mail.ru", 175, EyeColor.BLUE);
+//            student.setPassport(passport);
+//            entityManager.persist(student);
+            Student student = entityManager.find(Student.class, 1);
+            System.out.println(student.getPassport());
 
             transaction.commit();
         } catch (Exception e) {

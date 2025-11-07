@@ -6,8 +6,8 @@
 
     <persistence-unit name="jpa-course" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>jdbc.example.relationships.one_to_one.entity.Student</class>
-        <class>jdbc.example.relationships.one_to_one.entity.Passport</class>
+        <class>jdbc.example.relationships.one_to_many.entity.Student</class>
+        <class>jdbc.example.relationships.one_to_many.entity.University</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="jakarta.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/test_db" />
@@ -16,7 +16,7 @@
 
             <property name="hibernate.show_sql"   value="true" />
             <property name="hibernate.format_sql" value="true" />
-<!--             <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>

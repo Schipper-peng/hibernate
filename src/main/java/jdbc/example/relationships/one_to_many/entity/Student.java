@@ -1,12 +1,14 @@
-package jdbc.example.relationships.one_to_one.entity;
+package jdbc.example.relationships.one_to_many.entity;
 
 import jakarta.persistence.*;
-
+import jdbc.example.relationships.one_to_one.entity.Passport;
 
 import java.util.Objects;
 
-//@Entity
-//@Table(name = "students")
+import static jakarta.persistence.CascadeType.*;
+
+@Entity
+@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +20,11 @@ public class Student {
     private String surname;
     @Column(name = "avg_grade")
     private Double avgGrade;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id")
-    private Passport passport;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "university_id")
+    private University university;
+
 
     public Student() {
     }
@@ -61,13 +65,7 @@ public class Student {
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
     }
-    public Passport getPassport() {
-        return passport;
-    }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-    }
 
 
     @Override
@@ -81,6 +79,13 @@ public class Student {
     public int hashCode() {
         return Objects.hash(id, name, surname, avgGrade);
     }
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
+    }
 
 
     @Override
@@ -92,5 +97,7 @@ public class Student {
                 ", avgGrade=" + avgGrade +
                 '}';
     }
+
+
 }
 
