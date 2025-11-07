@@ -47,9 +47,9 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="7d66be85-c66f-4b94-bdac-3e12cb0570d7">
-      <console name="Connection" type="STANDARD" schema="test_db" session="Main"><![CDATA[select  * from students;
-select  * from passports;]]></console>
+    <connection id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e">
+      <console name="Connection 1" type="STANDARD" schema="test_db" session="Main"><![CDATA[select * from students;
+select * from passports;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -59,10 +59,7 @@ select  * from passports;]]></console>
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="7d66be85-c66f-4b94-bdac-3e12cb0570d7" />
-  </component>
-  <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="7d66be85-c66f-4b94-bdac-3e12cb0570d7" dataset="test_db.students" active-filter-id="" />
+    <connection id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -84,13 +81,13 @@ select  * from passports;]]></console>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection source-id="" id="7d66be85-c66f-4b94-bdac-3e12cb0570d7" active="true" signed="true">
+      <connection source-id="" id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection 1" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="8.0" />
+          <database-version value="9.4" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />

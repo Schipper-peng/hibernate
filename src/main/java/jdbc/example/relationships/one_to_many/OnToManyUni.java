@@ -38,8 +38,8 @@ public class OnToManyUni {
 //            university.addStudentToUniversity(student3);
 //            Student student = entityManager.find(Student.class, 2);
 //            entityManager.remove(student);
-            University university = entityManager.find(University.class, 1);
-            entityManager.remove(university);
+//            University university = entityManager.find(University.class, 1);
+//            entityManager.remove(university);
 
 
 

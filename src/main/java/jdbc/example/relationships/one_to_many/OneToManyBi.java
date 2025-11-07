@@ -37,9 +37,9 @@ public class OneToManyBi {
 //            university.addStudentToUniversity(student4);
 //            entityManager.persist(student3);
 //            FIND
-            University university = entityManager.find(University.class, 1);
-            System.out.println(university);
-            System.out.println(university.getStudents());
+//            University university = entityManager.find(University.class, 1);
+//            System.out.println(university);
+//            System.out.println(university.getStudents());
 //            REMOVE
 //            Student student = entityManager.find(Student.class, 1);
 //            entityManager.remove(student);

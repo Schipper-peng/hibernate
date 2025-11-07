@@ -7,8 +7,8 @@ import java.util.Objects;
 
 import static jakarta.persistence.CascadeType.*;
 
-@Entity
-@Table(name = "students")
+//@Entity
+//@Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Student {
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "university_id")
     private University university;
 
