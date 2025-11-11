@@ -5,8 +5,8 @@ import jdbc.example.relationships.one_to_one.EyeColor;
 
 import java.util.Objects;
 
-@Entity
-@Table(name = "passports")
+//@Entity
+//@Table(name = "passports")
 public class Passport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

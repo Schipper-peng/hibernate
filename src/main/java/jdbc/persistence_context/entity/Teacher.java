@@ -1,9 +1,11 @@
-package jdbc.example.relationships.many_to_many.entity;
+package jdbc.persistence_context.entity;
 
 import jakarta.persistence.*;
+import jdbc.example.relationships.many_to_many.entity.University;
 
 import java.util.ArrayList;
 import java.util.List;
+//@Cacheable
 //@Entity
 //@Table(name = "teachers")
 public class Teacher {
@@ -21,13 +23,6 @@ public class Teacher {
     private boolean isProfessor;
 
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "teacher_uni",
-        joinColumns = @JoinColumn(name = "teacher_id"),
-    inverseJoinColumns = @JoinColumn(name = "university_id")
-    )
-    private List<University> universities = new ArrayList<>();
-
     public Teacher() {
     }
 
@@ -37,12 +32,36 @@ public class Teacher {
         this.subject = subject;
         this.isProfessor = isProfessor;
     }
-
-
-
-    public void addUniversityToTeacher(University university){
-        universities.add(university);
+    @PrePersist
+    void prePersist() {
+        System.out.println("Pre-persist");
     }
+    @PostPersist
+    void postPersist() {
+        System.out.println("Post-persist");
+    }
+    @PreUpdate
+    void preUpdate() {
+        System.out.println("Pre-update");
+    }
+    @PostUpdate
+    void postUpdate() {
+        System.out.println("Post-update");
+    }
+    @PreRemove
+    void preRemove() {
+        System.out.println("Pre-remove");
+    }
+    @PostRemove
+    void postRemove() {
+        System.out.println("Post-remove");
+    }
+    @PostLoad
+    void postLoad() {
+        System.out.println("Post-load");
+    }
+
+
 
     public Long getId() {
         return id;
@@ -84,13 +103,6 @@ public class Teacher {
         isProfessor = professor;
     }
 
-    public List<University> getUniversities() {
-        return universities;
-    }
-
-    public void setUniversities(List<University> universities) {
-        this.universities = universities;
-    }
 
     @Override
     public String toString() {

@@ -1,7 +1,6 @@
-package jdbc.example.relationships.one_to_one.entity;
+package jdbc.jpql.entity;
 
 import jakarta.persistence.*;
-
 
 import java.util.Objects;
 
@@ -18,11 +17,13 @@ public class Student {
     private String surname;
     @Column(name = "avg_grade")
     private Double avgGrade;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id")
-    private Passport passport;
 
-    public Student(String alexandro, String lozano, String cs, boolean b) {
+    @ManyToOne
+    @JoinColumn(name = "university_id")
+    private University university;
+
+
+    public Student() {
     }
 
     public Student(String name, String surname, Double avgGrade) {
@@ -61,25 +62,26 @@ public class Student {
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
     }
-    public Passport getPassport() {
-        return passport;
+
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Student student = (Student) o;
+//        return Objects.equals(id, student.id) && Objects.equals(name, student.name) && Objects.equals(surname, student.surname) && Objects.equals(avgGrade, student.avgGrade);
+//    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, surname, avgGrade);
+//    }
+    public University getUniversity() {
+        return university;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return Objects.equals(id, student.id) && Objects.equals(name, student.name) && Objects.equals(surname, student.surname) && Objects.equals(avgGrade, student.avgGrade);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, surname, avgGrade);
+    public void setUniversity(University university) {
+        this.university = university;
     }
 
 
@@ -92,5 +94,7 @@ public class Student {
                 ", avgGrade=" + avgGrade +
                 '}';
     }
+
+
 }
 

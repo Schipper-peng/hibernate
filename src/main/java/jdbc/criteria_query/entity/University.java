@@ -1,14 +1,13 @@
-package jdbc.example.relationships.many_to_many.entity;
+package jdbc.criteria_query.entity;
 
 import jakarta.persistence.*;
-import jdbc.example.relationships.one_to_many.entity.Student;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//@Entity
-//@Table(name = "universities")
+@Entity
+@Table(name = "universities")
 public class University { ;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,14 +18,15 @@ public class University { ;
     @Column(name = "founding_date")
     private Date founding_date;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "teacher_uni",
-    joinColumns = @JoinColumn(name = "university_id"),
-    inverseJoinColumns = @JoinColumn(name = "teacher_id")
-    )
+    @OneToMany(mappedBy = "university", fetch = FetchType.LAZY)
+    @OrderBy("avgGrade")
+    private List<Student> students = new ArrayList<>();
 
+    public void addStudentToUniversity (Student student) {
+        students.add(student);
+        student.setUniversity(this);
+    }
 
-    private List<Teacher> teachers = new ArrayList<>();
 
     public University() {
     }
@@ -35,9 +35,7 @@ public class University { ;
         this.name = name;
         this.founding_date = founding_date;
     }
-    public void addTeacherToUniversity(Teacher teacher) {
-        teachers.add(teacher);
-    }
+
     public String getName() {
         return name;
     }
@@ -53,15 +51,13 @@ public class University { ;
     public void setFounding_date(Date founding_date) {
         this.founding_date = founding_date;
     }
-    public List<Teacher> getTeachers() {
-        return teachers;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
-
-
 
     @Override
     public String toString() {
@@ -71,7 +67,6 @@ public class University { ;
                 ", founding_date='" + founding_date + '\'' +
                 '}';
     }
-
 
 
 }

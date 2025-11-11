@@ -14,11 +14,11 @@
 //            Scanner scanner = new Scanner(System.in);
 //            System.out.println("Enter name: ");
 //            String enteredName = scanner.nextLine();
-////           Statement statement = connection.createStatement();
-////           String sqlQuery = "UPDATE students SET avg_grade = 5.2" +
-////                   "WHERE name = '" + enteredName + "'";
-////           statement.executeUpdate(sqlQuery);
-////           statement.close();
+//           Statement statement = connection.createStatement();
+//           String sqlQuery = "UPDATE students SET avg_grade = 5.2" +
+//                   "WHERE name = '" + enteredName + "'";
+//           statement.executeUpdate(sqlQuery);
+//           statement.close();
 //            PreparedStatement statement = connection.prepareStatement(
 //                    "UPDATE students SET avg_grade = 7.5 WHERE name = ?");
 //            statement.setString(1, enteredName);

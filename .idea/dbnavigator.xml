@@ -14,19 +14,28 @@
       <assistant-state connection-id="7d66be85-c66f-4b94-bdac-3e12cb0570d7" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations />
       </assistant-state>
-      <assistant-state connection-id="24e293dc-6bc6-4fc4-a38f-286d1ff2894f" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+      <assistant-state connection-id="11381915-0c3b-48f1-b8bc-df789db1ff30" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations />
       </assistant-state>
       <assistant-state connection-id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+        <conversations />
+      </assistant-state>
+      <assistant-state connection-id="1e069914-9a87-46f2-9582-86a534597d0f" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+        <conversations />
+      </assistant-state>
+      <assistant-state connection-id="51cde770-a326-4de1-8205-369ffafa81c8" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+        <conversations />
+      </assistant-state>
+      <assistant-state connection-id="24e293dc-6bc6-4fc4-a38f-286d1ff2894f" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+        <conversations />
+      </assistant-state>
+      <assistant-state connection-id="54c84ef0-f874-4e1d-8d81-fccdb75fd82f" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations />
       </assistant-state>
       <assistant-state connection-id="56b06639-6937-4811-acf7-0be2da59aa72" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations />
       </assistant-state>
       <assistant-state connection-id="e539acf2-57f1-4431-a8fb-072344772560" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
-        <conversations />
-      </assistant-state>
-      <assistant-state connection-id="51cde770-a326-4de1-8205-369ffafa81c8" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations />
       </assistant-state>
       <assistant-state connection-id="9debf772-0955-4e1f-89aa-0e4a85c3cc65" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
@@ -47,19 +56,39 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e">
-      <console name="Connection 1" type="STANDARD" schema="test_db" session="Main"><![CDATA[select * from students;
-select * from passports;]]></console>
+    <connection id="1e069914-9a87-46f2-9582-86a534597d0f">
+      <console name="Connection" type="STANDARD" schema="test_db" session="Main"><![CDATA[select * from test_db.students;
+select * from test_db.universities;
+insert into test_db.universities (name, founding_date)
+values
+    ('Harvard','1636-10-28'),
+    ('MIT','1861-04-10'),
+    ('Cambridge','1209-01-01'),
+    ('Oxford','1200-09-01')
+;
+
+insert into test_db.students (name, surname, avg_grade, university_id)
+values
+    ('Chanel','King', 9.1, 1),
+    ('Leo','Farrell', 8.4, 1),
+    ('Julia','Dean', 8.7, 1),
+    ('Serena','Nielsen', 7.2, 2),
+    ('Isaac','Sharp', 9.8, 2),
+    ('Frankie','Perry', 5.8, 3),
+    ('Roy','Harper', 7.9, null)
+;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="1e069914-9a87-46f2-9582-86a534597d0f" object-ref="consoles/Connection" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e" />
+    <connection id="1e069914-9a87-46f2-9582-86a534597d0f" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -81,9 +110,9 @@ select * from passports;]]></console>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection source-id="" id="542ccfa1-abf3-4fc9-83c1-7b91c56db62e" active="true" signed="true">
+      <connection source-id="" id="1e069914-9a87-46f2-9582-86a534597d0f" active="true" signed="true">
         <database>
-          <name value="Connection 1" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />

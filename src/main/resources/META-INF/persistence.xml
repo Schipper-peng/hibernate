@@ -6,8 +6,8 @@
 
     <persistence-unit name="jpa-course" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>jdbc.example.relationships.many_to_many.entity.Teacher</class>
-        <class>jdbc.example.relationships.many_to_many.entity.University</class>
+        <class>jdbc.jpql.entity.Student</class>
+<!--        <class>jdbc.example.relationships.many_to_many.entity.University</class>-->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="jakarta.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/test_db" />
@@ -17,6 +17,13 @@
             <property name="hibernate.show_sql"   value="true" />
             <property name="hibernate.format_sql" value="true" />
              <property name="hibernate.hbm2ddl.auto" value="update"/>
+<!--            <property name="hibernate.cache.region.factory_class"-->
+<!--                      value="org.hibernate.cache.jcache.JCacheRegionFactory"/>-->
+<!--            <property name="javax.cache.provider"-->
+<!--                      value="org.ehcache.jsr107.EhcacheCachingProvider"/>-->
+<!--            <property name="javax.persistence.sharedCache.mode"-->
+<!--                      value="ENABLE_SELECTIVE"/>-->
+
         </properties>
     </persistence-unit>
 </persistence>
