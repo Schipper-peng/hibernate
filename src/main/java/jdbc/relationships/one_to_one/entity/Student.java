@@ -1,6 +1,7 @@
-package jdbc.hibernate.entity;
+package jdbc.relationships.one_to_one.entity;
 
 import jakarta.persistence.*;
+
 
 import java.util.Objects;
 
@@ -17,9 +18,11 @@ public class Student {
     private String surname;
     @Column(name = "avg_grade")
     private Double avgGrade;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passport_id")
+    private Passport passport;
 
-
-    public Student() {
+    public Student(String alexandro, String lozano, String cs, boolean b) {
     }
 
     public Student(String name, String surname, Double avgGrade) {
@@ -57,6 +60,13 @@ public class Student {
 
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
+    }
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
     }
 
 

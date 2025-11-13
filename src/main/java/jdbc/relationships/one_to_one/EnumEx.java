@@ -1,13 +1,12 @@
-package jdbc.advanced_mapping;
+package jdbc.relationships.one_to_one;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import jdbc.advanced_mapping.entity.Address;
-import jdbc.advanced_mapping.entity.Employee;
+import jdbc.relationships.one_to_one.entity.Student;
 
-public class CompositeTypeMappingEx {
+public class EnumEx {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("jpa-course");
@@ -18,13 +17,12 @@ public class CompositeTypeMappingEx {
         try {
             transaction.begin();
 
-//            Address address = new Address("USA", "Chicago", "Dempster", 40);
-//            Employee employee = new Employee("Michael", 4000, 15d);
-//            entityManager.persist(employee);
-//            Employee employee = entityManager.find(Employee.class, 1);
-//            System.out.println(employee);
-
-
+//            Student student = new Student("John", "Scott", 9.1);
+//            Passport passport = new Passport("johny@mail.ru", 175, EyeColor.BLUE);
+//            student.setPassport(passport);
+//            entityManager.persist(student);
+            Student student = entityManager.find(Student.class, 1);
+            System.out.println(student.getPassport());
 
             transaction.commit();
         } catch (Exception e) {
@@ -40,5 +38,4 @@ public class CompositeTypeMappingEx {
         }
 
     }
-
 }

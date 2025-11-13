@@ -1,4 +1,4 @@
-package jdbc.hibernate.entity;
+package jdbc.relationships.one_to_many.entity;
 
 import jakarta.persistence.*;
 
@@ -17,6 +17,10 @@ public class Student {
     private String surname;
     @Column(name = "avg_grade")
     private Double avgGrade;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "university_id")
+    private University university;
 
 
     public Student() {
@@ -60,6 +64,7 @@ public class Student {
     }
 
 
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -70,6 +75,13 @@ public class Student {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, surname, avgGrade);
+    }
+    public University getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(University university) {
+        this.university = university;
     }
 
 
@@ -82,5 +94,7 @@ public class Student {
                 ", avgGrade=" + avgGrade +
                 '}';
     }
+
+
 }
 

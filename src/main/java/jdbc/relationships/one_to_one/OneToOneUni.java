@@ -1,13 +1,13 @@
-package jdbc.advanced_mapping;
+package jdbc.relationships.one_to_one;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import jdbc.advanced_mapping.entity.Address;
-import jdbc.advanced_mapping.entity.Employee;
+import jdbc.relationships.one_to_one.entity.Passport;
+import jdbc.relationships.one_to_one.entity.Student;
 
-public class CompositeTypeMappingEx {
+public class OneToOneUni {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence
                 .createEntityManagerFactory("jpa-course");
@@ -17,13 +17,17 @@ public class CompositeTypeMappingEx {
 
         try {
             transaction.begin();
+            Student student1 = new Student("Oleg", "Sablin", 6.3 );
+            Passport passport1 = new Passport("sablin@mail.com", 185, EyeColor.BLUE);
+            student1.setPassport(passport1);
 
-//            Address address = new Address("USA", "Chicago", "Dempster", 40);
-//            Employee employee = new Employee("Michael", 4000, 15d);
-//            entityManager.persist(employee);
-//            Employee employee = entityManager.find(Employee.class, 1);
-//            System.out.println(employee);
-
+            entityManager.persist(passport1);
+            entityManager.persist(student1);
+//            Student student = entityManager.find(Student.class, 3);
+//            System.out.println(student);
+//            System.out.println(student.getPassport());
+//            Student student = entityManager.find(Student.class, 3);
+//            entityManager.remove(student);
 
 
             transaction.commit();
@@ -40,5 +44,4 @@ public class CompositeTypeMappingEx {
         }
 
     }
-
 }
